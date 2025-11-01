@@ -14,7 +14,7 @@ auto test_skip() -> int {
 }
 
 auto main() -> int {
-    Willow::DefaultReporter r = {};
+    Willow::PreCommitReporter r = {};
     return Willow::run_tests(
         {
             {"Pass", test_pass},

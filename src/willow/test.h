@@ -14,13 +14,13 @@ namespace Willow {
                 return "None";
                 break;
             case Status::Pass:
-                return "Pass";
+                return "Passed";
                 break;
             case Status::Fail:
-                return "Fail";
+                return "Failed";
                 break;
             case Status::Skip:
-                return "Skip";
+                return "Skipped";
                 break;
         };
 

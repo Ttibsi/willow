@@ -22,6 +22,7 @@ namespace Willow {
         }
 
         std::for_each(tests.begin(), tests.end(), [&reporter](Test& t) { reporter.print(t); });
+        reporter.cleanup();
 
         return std::count_if(
             tests.begin(), tests.end(), [](Test& t) { return t.status == Status::Fail; });
