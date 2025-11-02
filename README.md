@@ -9,11 +9,11 @@ what you're doing, feel free to clone the repo and do what you need yourself.
 ```cmake
 include(FetchContent)
 fetchcontent_declare(
-  rawterm
+  willow
   GIT_REPOSITORY https://github.com/ttibsi/willow
   GIT_TAG        v0.0.1
 )
-fetchcontent_makeavailable(rawterm)
+fetchcontent_makeavailable(willow)
 ```
 
 # Example
@@ -23,8 +23,8 @@ file -- anything in the `src/` directory are the tests for this project,
 `src/willow` is the source code.
 
 ```cpp
-#include "willow/reporters.h"
-#include "willow/willow.h"
+#include <willow/reporters.h>
+#include <willow/willow.h>
 
 auto add(int x, int y) -> int { return x + y; }
 
