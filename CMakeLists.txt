@@ -4,7 +4,7 @@ project(willow-test LANGUAGES CXX)
 
 add_subdirectory(src/willow)
 
-if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+# if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
     set(CMAKE_CXX_STANDARD 23)
     set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -16,6 +16,6 @@ if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
 
     add_executable(willow_test src/main.cpp)
     target_link_libraries(willow_test PRIVATE willow)
-endif()
+# endif()
 
 install(DIRECTORY src/willow DESTINATION willow) 
