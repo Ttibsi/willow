@@ -1,6 +1,8 @@
 #ifndef WILLOW_REPORTER_H
 #define WILLOW_REPORTER_H
 
+// TODO: Implement JSONReporter
+
 #include <print>
 
 #include "test.h"
