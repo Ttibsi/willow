@@ -18,4 +18,4 @@ add_subdirectory(src/willow)
     target_link_libraries(willow_test PRIVATE willow)
 # endif()
 
-install(DIRECTORY src/willow DESTINATION willow) 
+# install(DIRECTORY src/willow DESTINATION willow) 
