@@ -17,4 +17,4 @@ if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
     target_link_libraries(willow_test PRIVATE willow)
 endif()
 
-# install(DIRECTORY src/willow DESTINATION willow) 
+install(DIRECTORY src/willow DESTINATION willow) 
