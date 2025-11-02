@@ -1,2 +1,4 @@
 iris.log
-build/ 
+build/
+.gdb_history
+.cache
