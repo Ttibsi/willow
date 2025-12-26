@@ -52,10 +52,10 @@ namespace Willow {
 
             if (test.status == Status::Fail) {
                 results.fail++;
-                std::println("\x1b[31m\tReturn code: {}\x1b[0m", test.retcode);
                 if (test.msg.has_value()) {
                     std::println("\x1b[31m\t{}\x1b[0m", test.msg.value());
                 }
+                std::println("\x1b[31m\tReturn code: {}\x1b[0m", test.retcode);
 
             } else if (test.status == Status::Skip) {
                 results.skip++;

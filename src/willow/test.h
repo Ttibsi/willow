@@ -1,6 +1,7 @@
 #ifndef WILLOW_TEST_H
 #define WILLOW_TEST_H
 
+#include <optional>
 #include <string>
 
 namespace Willow {
@@ -43,7 +44,7 @@ namespace Willow {
 
         auto operator()() -> void { retcode = fn(this); }
 
-        constexpr auto alert(std::string message) -> void { msg = message; }
+        constexpr auto alert(const std::string& message) -> void { msg = message; }
     };
 };  // namespace Willow
 

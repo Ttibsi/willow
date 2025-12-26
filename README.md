@@ -7,6 +7,7 @@ Currently, willow only supports CMake for distribution, although if you know
 what you're doing, feel free to clone the repo and do what you need yourself.
 
 ```cmake
+set(CMAKE_CXX_STANDARD 23)
 include(FetchContent)
 fetchcontent_declare(
   willow
@@ -32,7 +33,7 @@ auto add(int x, int y) -> int { return x + y; }
 // it succeeded or not. Alerts print on function failure
 auto test_add(Willow::Test* test) -> int {
     if (add(3, 2) != 5) {
-        Willow::alert(test, "3 + 2 does not equal 5");
+        test->alert("3 + 2 does not equal 5");
         return 1;
     }
 
