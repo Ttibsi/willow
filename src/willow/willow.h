@@ -38,7 +38,7 @@ namespace Willow {
     }
 
     constexpr auto runSingleTest(std::string_view test_name, Reporter& reporter) -> int {
-        auto it = std::find_if(global_tests.begin(), global_tests.end(), [test_name](Test& t) {
+        auto it = std::find_if(global_tests.begin(), global_tests.end(), [&test_name](Test& t) {
             return t.name == test_name;
         });
         if (it == global_tests.end()) {
@@ -51,9 +51,7 @@ namespace Willow {
         }
 
         exec();
-        if (exec.retcode != 0) {
-            exec.status = Status::Fail;
-        }
+        exec.status = (exec.retcode == 0 ? Status::Pass : Status::Fail);
         reporter.print(exec);
 
         return exec.retcode;
