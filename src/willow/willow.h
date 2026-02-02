@@ -7,8 +7,14 @@
 #include "test.h"
 
 namespace Willow {
-    constexpr auto runTests(std::vector<Test> tests, Reporter& reporter) -> int {
-        for (auto&& test : tests) {
+    std::vector<Test> global_tests = {};
+
+    constexpr auto registerTests(std::vector<Test> tests) -> void {
+        global_tests = tests;
+    }
+
+    constexpr auto runTests(Reporter& reporter) -> int {
+        for (auto&& test : global_tests) {
             if (test.status == Status::Skip) {
                 continue;
             }
@@ -22,10 +28,10 @@ namespace Willow {
             test.status = Status::Pass;
         }
 
-        std::for_each(tests.begin(), tests.end(), [&reporter](Test& t) { reporter.print(t); });
+        std::for_each(global_tests.begin(), global_tests.end(), [&reporter](Test& t) { reporter.print(t); });
         reporter.cleanup();
 
-        return int32_t(std::count_if(tests.begin(), tests.end(), [](Test& t) {
+        return int32_t(std::count_if(global_tests.begin(), global_tests.end(), [](Test& t) {
             return t.status == Status::Fail;
         }));
     }
