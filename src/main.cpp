@@ -1,5 +1,3 @@
-#include <print>
-
 #include "tests/test_reporters.h"
 #include "tests/test_test.h"
 #include "tests/test_willow.h"
