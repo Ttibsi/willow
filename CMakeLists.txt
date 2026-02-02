@@ -4,8 +4,6 @@ project(willow-test LANGUAGES CXX)
 add_subdirectory(src/willow)
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-    message("LOCAL BUILD ONLY")
-    set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
     set(CMAKE_CXX_STANDARD 23)
     set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
