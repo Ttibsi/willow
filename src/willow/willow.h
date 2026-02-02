@@ -39,7 +39,7 @@ namespace Willow {
 
     constexpr auto runSingleTest(std::string_view test_name, Reporter& reporter) -> int {
         auto it = std::find_if(global_tests.begin(), global_tests.end(), [&test_name](Test& t) {
-            return t.name == test_name;
+            return t.name.contains(test_name);
         });
         if (it == global_tests.end()) {
             return 1;
