@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: sudo apt-get install clang-19 -y
+      - run: sudo apt-get install g++-14 -y
       - run: cmake -S . -B build && cmake --build build
+        env:
+          CXX: /usr/bin/g++-14
       - run: ./build/willow_test

@@ -12,11 +12,14 @@ namespace FixtureFuncs {
 
 constexpr auto test_runTests([[maybe_unused]] Willow::Test* test) -> int {
     SilentReporter r = {};
-    int ret = Willow::runTests(
+    std::vector<Willow::Test> storage = Willow::global_tests;
+
+    Willow::registerTests(
         {{"pass", FixtureFuncs::pass},
          {"fail", FixtureFuncs::fail},
-         {"skip", FixtureFuncs::fail, Willow::Status::Skip}},
-        r);
+         {"skip", FixtureFuncs::fail, Willow::Status::Skip}});
 
+    int ret = Willow::runTests(r);
+    Willow::global_tests = storage;
     return !(ret == 1);
 }

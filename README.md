@@ -4,7 +4,7 @@ A unit testing library for modern c++23
 
 # How to use
 Currently, willow only supports CMake for distribution, although if you know
-what you're doing, feel free to clone the repo and do what you need yourself.
+what you're doing, feel free to clone the repo and build it yourself
 
 ```cmake
 set(CMAKE_CXX_STANDARD 23)
@@ -45,13 +45,16 @@ auto main() -> int {
     // are available
     Willow::DefaultReporter reporter = {};
 
-    // Your executable will exit with a return code displaying the number of
-    // failed tests
-    return Willow::runTests({
+    // Register each function to test
+    Willow::registerTests({
         // Each test function is given a name to display as output. you can also
         // mark tests for skipping
         {"addition test", test_add},
         {"skipped test", test_add, Willow::Status::Skip},
-    }, reporter);
+    });
+
+    // Your executable will exit with a return code displaying the number of
+    // failed tests
+    return Willow::runTests(reporter);
 }
 ```
